@@ -1,0 +1,5 @@
+C:\Users\hli3584\Desktop\BIA02_HLDD\BIA02\QueueReader\QueueReader\obj\Debug\QueueReader.csprojAssemblyReference.cache
+C:\Users\hli3584\Desktop\BIA02_HLDD\BIA02\QueueReader\QueueReader\obj\Debug\QueueReader.Form1.resources
+C:\Users\hli3584\Desktop\BIA02_HLDD\BIA02\QueueReader\QueueReader\obj\Debug\QueueReader.Properties.Resources.resources
+C:\Users\hli3584\Desktop\BIA02_HLDD\BIA02\QueueReader\QueueReader\obj\Debug\QueueReader.csproj.GenerateResource.cache
+C:\Users\hli3584\Desktop\BIA02_HLDD\BIA02\QueueReader\QueueReader\obj\Debug\QueueReader.csproj.CoreCompileInputs.cache
