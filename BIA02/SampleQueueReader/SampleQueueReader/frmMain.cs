@@ -26,6 +26,14 @@ namespace SampleQueueReader
         MessageQueue msmq = new MessageQueue();
         Boolean bRead = false;
         String queueName = "\\private$\\yoyo";
+        String[,] productNameArr = { {"1","Original Sleeper" }, {"2","Black Beauty" }, {"3","Firecraker" },
+                                        {"4", "Lemon Yellow" }, {"5","Midnight Blue" }, {"6","Screaming Orange" },
+                                        {"7", "Gold Glitter" },{"8","White Lightening" },{"9","All" } };
+        String [,] state = {{"0","MOLD"},{"0","QUEUE_INSPECTION_1" },{"0","INSPECTION_1" },{"0","INSPECTION_1_SCRAP" },{"0","QUEUE_PAINT" },{"0","PAINT" },
+                          { "0","QUEUE_INSPECTION_2" },{"0","INSPECTION_2" },{"0","INSPECTION_2_REWORK" },{"0","INSPECTION_2_SCRAP" },{"0","QUEUE_ASSEMBLY" },
+                          { "0","QUEUE_INSPECTION_3" },{"0","INSPECTION_3" },{"0","INSPECTION_3_REWORK" },{"0","INSPECTION_3_SCRAP" },{"0","PACKAGE"} };
+        int moldddd = 0;
+        int ProductID = 0;
         public frmMain()
         {
             InitializeComponent();
@@ -33,6 +41,84 @@ namespace SampleQueueReader
             msmq.MessageReadPropertyFilter.LookupId = true;
             msmq.SynchronizingObject = this;
             msmq.ReceiveCompleted += new ReceiveCompletedEventHandler(msmq_ReceiveCompleted);
+            lstBoxProductInit();
+        }
+
+
+        private void lstBoxProductInit()
+        {
+            for (int i = 0; i < productNameArr.Length / 2; i++)
+            {
+                //MessageBox.Show(productNameArr[i, 1].ToString());
+                lstBoxProduct.Items.Add(productNameArr[i, 1].ToString());
+            }
+        }
+
+        private void lstBoxProduct_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i < productNameArr.Length / 2; i++)
+            {
+                if (lstBoxProduct.SelectedItem.ToString() == productNameArr[i, 1].ToString())
+                {
+                    string product = lstBoxProduct.SelectedItem.ToString();
+                    ProductID = i+1;
+                    MessageBox.Show(product + " - " + ProductID + " has been selected");
+                    lstBoxProductSelector(ProductID);
+                }
+            }
+        }
+        private void lstBoxProductSelector(int productID)
+        {
+
+            lstWriteData.Items.Clear();
+            SqlConnection conn = new SqlConnection("Persist Security Info = False; User ID = sa; Initial Catalog = yoyoDB; Data Source = .;Password=Conestoga1;");
+            SqlCommand cmd = new SqlCommand("SELECT * FROM yoyoData WHERE ProductID = " + productID, conn);
+            try
+            {
+                conn.Open();
+                SqlDataReader rdr = cmd.ExecuteReader();
+                while (rdr.Read())
+                {
+                    lstWriteData.Items.Add(rdr.GetString(0) + ',' +
+                                       rdr.GetString(1) + "," +
+                                       rdr.GetString(2) + ',' +
+                                       rdr.GetString(3) + ',' +
+                                       rdr.GetString(4) + ',' +
+                                       rdr.GetDateTime(5) + "," +
+                                       rdr.GetString(6));
+
+                    txtb1.Text = lstWriteData.Items.Count.ToString();
+                    for (int i = 0; i < state.Length /2; i++)
+                    {
+                        if (rdr.GetString(3) == state[i, 1].ToString())
+                        {
+                            state[i, 0] = (Convert.ToInt32(state[i, 0]) + 1).ToString();
+                        }
+                    }
+
+                    //if (rdr.GetString(3) == "MOLD")
+                    //{
+                    //    moldddd++;
+                    //    txtBMOLD.Text = moldddd.ToString();
+                    //}
+                }
+
+                for (int i = 0; i < state.Length /2; i++)
+                {
+                    MessageBox.Show(state[i,1].ToString() + " - " + state[i,0].ToString());
+                }
+
+                rdr.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + "s");
+            }
+
+            finally
+            {
+                conn.Close();
+            }
         }
 
         private void ReadFromDatabase()
@@ -45,20 +131,8 @@ namespace SampleQueueReader
                 conn.Open();
                 SqlDataReader rdr = cmd.ExecuteReader();
                 while (rdr.Read())
-                {
-                    //listReadbox.Items.Add(rdr["SerialNumber"].ToString());
-                    //string showLine = "";
-                    //rdr.GetString(0);
-                    //MessageBox.Show(rdr["SerialNumber"].ToString());
-                    //string rdrString = "rdr.GetString(0)";
-                    //MessageBox.Show(rdr.GetString(0) + ',' +
-                    //                   rdr.GetString(1) + "," +
-                    //                   rdr.GetString(2) + ',' +
-                    //                   rdr.GetString(3) + ',' +
-                    //                   rdr.GetString(4) + ',' +                                                                              
-                    //                   rdr.GetDateTime(5) + "," +
-                    //                   rdr.GetString(6));
-                    lstReadData.Items.Add(rdr.GetString(0) + ',' +
+                {                    
+                    lstWriteData.Items.Add(rdr.GetString(0) + ',' +
                                        rdr.GetString(1) + "," +
                                        rdr.GetString(2) + ',' +
                                        rdr.GetString(3) + ',' +
@@ -80,8 +154,7 @@ namespace SampleQueueReader
             
         }
         private void WriteToDatabase(string msgData)
-        {
-            //SqlConnection conn = new SqlConnection("Data Source=.;Initial Catalog=yoyoDB;Persist Security Info=True;User ID=sa;Password=Conestoga1;");
+        {            
             SqlConnection conn = new SqlConnection("Persist Security Info = False; User ID = sa; Initial Catalog = yoyoDB; Data Source = .;Password=Conestoga1;");
             SqlCommand cmd = new SqlCommand();
             conn.Open();
@@ -228,6 +301,11 @@ namespace SampleQueueReader
         private void button1_Click(object sender, EventArgs e)
         {
             ReadFromDatabase();
+        }
+
+        private void btnClearList_Click(object sender, EventArgs e)
+        {
+            lstWriteData.Items.Clear();
         }
     }
 }
