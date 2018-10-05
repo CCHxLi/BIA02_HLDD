@@ -34,3 +34,10 @@ C:\Users\Ddarihan9887\Desktop\BIA02_HLDD\BIA02\SampleQueueReader\SampleQueueRead
 C:\Users\Ddarihan9887\Desktop\BIA02_HLDD\BIA02\SampleQueueReader\SampleQueueReader\obj\x86\Debug\SampleQueueReader.csproj.CoreCompileInputs.cache
 C:\Users\Ddarihan9887\Desktop\BIA02_HLDD\BIA02\SampleQueueReader\SampleQueueReader\obj\x86\Debug\SampleQueueReader.exe
 C:\Users\Ddarihan9887\Desktop\BIA02_HLDD\BIA02\SampleQueueReader\SampleQueueReader\obj\x86\Debug\SampleQueueReader.pdb
+C:\Users\cc\Desktop\darihancc\BIA02_HLDD\BIA02\SampleQueueReader\SampleQueueReader\obj\x86\Debug\SampleQueueReader.csprojAssemblyReference.cache
+C:\Users\cc\Desktop\darihancc\BIA02_HLDD\BIA02\SampleQueueReader\SampleQueueReader\obj\x86\Debug\SampleQueueReader.frmMain.resources
+C:\Users\cc\Desktop\darihancc\BIA02_HLDD\BIA02\SampleQueueReader\SampleQueueReader\obj\x86\Debug\SampleQueueReader.Properties.Resources.resources
+C:\Users\cc\Desktop\darihancc\BIA02_HLDD\BIA02\SampleQueueReader\SampleQueueReader\obj\x86\Debug\SampleQueueReader.csproj.GenerateResource.cache
+C:\Users\cc\Desktop\darihancc\BIA02_HLDD\BIA02\SampleQueueReader\SampleQueueReader\obj\x86\Debug\SampleQueueReader.csproj.CoreCompileInputs.cache
+C:\Users\cc\Desktop\darihancc\BIA02_HLDD\BIA02\SampleQueueReader\SampleQueueReader\obj\x86\Debug\SampleQueueReader.exe
+C:\Users\cc\Desktop\darihancc\BIA02_HLDD\BIA02\SampleQueueReader\SampleQueueReader\obj\x86\Debug\SampleQueueReader.pdb
