@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.btnStart = new System.Windows.Forms.Button();
             this.lstQueueData = new System.Windows.Forms.ListBox();
             this.btnStop = new System.Windows.Forms.Button();
@@ -46,15 +46,15 @@
             this.lstWriteData = new System.Windows.Forms.ListBox();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.lstBoxProduct = new System.Windows.Forms.ListBox();
-            this.textBox9 = new System.Windows.Forms.TextBox();
-            this.textBox8 = new System.Windows.Forms.TextBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtBTotalYield = new System.Windows.Forms.TextBox();
+            this.txtBTotalPartsPackaged = new System.Windows.Forms.TextBox();
+            this.txtBYieldAssembly = new System.Windows.Forms.TextBox();
+            this.txtBTotalPartsSuccessfullyAssembled = new System.Windows.Forms.TextBox();
+            this.txtBYieldPaint = new System.Windows.Forms.TextBox();
+            this.txtBTotalPartsSuccessfullyPainted = new System.Windows.Forms.TextBox();
+            this.txtBYieldMold = new System.Windows.Forms.TextBox();
+            this.txtBTotalPartSuccessfullyMolded = new System.Windows.Forms.TextBox();
+            this.txtBTotalPartsMolded = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -192,16 +192,16 @@
             // 
             // chart1
             // 
-            chartArea1.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.chart1.Legends.Add(legend1);
+            chartArea2.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            this.chart1.Legends.Add(legend2);
             this.chart1.Location = new System.Drawing.Point(883, 35);
             this.chart1.Name = "chart1";
-            series1.ChartArea = "ChartArea1";
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            this.chart1.Series.Add(series1);
+            series2.ChartArea = "ChartArea1";
+            series2.Legend = "Legend1";
+            series2.Name = "Series1";
+            this.chart1.Series.Add(series2);
             this.chart1.Size = new System.Drawing.Size(300, 300);
             this.chart1.TabIndex = 15;
             this.chart1.Text = "chart1";
@@ -215,68 +215,68 @@
             this.lstBoxProduct.TabIndex = 16;
             this.lstBoxProduct.Click += new System.EventHandler(this.lstBoxProduct_Click);
             // 
-            // textBox9
+            // txtBTotalYield
             // 
-            this.textBox9.Location = new System.Drawing.Point(1083, 767);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(100, 20);
-            this.textBox9.TabIndex = 43;
+            this.txtBTotalYield.Location = new System.Drawing.Point(1083, 767);
+            this.txtBTotalYield.Name = "txtBTotalYield";
+            this.txtBTotalYield.Size = new System.Drawing.Size(100, 20);
+            this.txtBTotalYield.TabIndex = 43;
             // 
-            // textBox8
+            // txtBTotalPartsPackaged
             // 
-            this.textBox8.Location = new System.Drawing.Point(1083, 739);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(100, 20);
-            this.textBox8.TabIndex = 42;
+            this.txtBTotalPartsPackaged.Location = new System.Drawing.Point(1083, 739);
+            this.txtBTotalPartsPackaged.Name = "txtBTotalPartsPackaged";
+            this.txtBTotalPartsPackaged.Size = new System.Drawing.Size(100, 20);
+            this.txtBTotalPartsPackaged.TabIndex = 42;
             // 
-            // textBox7
+            // txtBYieldAssembly
             // 
-            this.textBox7.Location = new System.Drawing.Point(1083, 713);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(100, 20);
-            this.textBox7.TabIndex = 41;
+            this.txtBYieldAssembly.Location = new System.Drawing.Point(1083, 713);
+            this.txtBYieldAssembly.Name = "txtBYieldAssembly";
+            this.txtBYieldAssembly.Size = new System.Drawing.Size(100, 20);
+            this.txtBYieldAssembly.TabIndex = 41;
             // 
-            // textBox6
+            // txtBTotalPartsSuccessfullyAssembled
             // 
-            this.textBox6.Location = new System.Drawing.Point(1083, 683);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(100, 20);
-            this.textBox6.TabIndex = 40;
+            this.txtBTotalPartsSuccessfullyAssembled.Location = new System.Drawing.Point(1083, 683);
+            this.txtBTotalPartsSuccessfullyAssembled.Name = "txtBTotalPartsSuccessfullyAssembled";
+            this.txtBTotalPartsSuccessfullyAssembled.Size = new System.Drawing.Size(100, 20);
+            this.txtBTotalPartsSuccessfullyAssembled.TabIndex = 40;
             // 
-            // textBox5
+            // txtBYieldPaint
             // 
-            this.textBox5.Location = new System.Drawing.Point(1083, 656);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(100, 20);
-            this.textBox5.TabIndex = 39;
+            this.txtBYieldPaint.Location = new System.Drawing.Point(1083, 656);
+            this.txtBYieldPaint.Name = "txtBYieldPaint";
+            this.txtBYieldPaint.Size = new System.Drawing.Size(100, 20);
+            this.txtBYieldPaint.TabIndex = 39;
             // 
-            // textBox4
+            // txtBTotalPartsSuccessfullyPainted
             // 
-            this.textBox4.Location = new System.Drawing.Point(1083, 625);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(100, 20);
-            this.textBox4.TabIndex = 38;
+            this.txtBTotalPartsSuccessfullyPainted.Location = new System.Drawing.Point(1083, 625);
+            this.txtBTotalPartsSuccessfullyPainted.Name = "txtBTotalPartsSuccessfullyPainted";
+            this.txtBTotalPartsSuccessfullyPainted.Size = new System.Drawing.Size(100, 20);
+            this.txtBTotalPartsSuccessfullyPainted.TabIndex = 38;
             // 
-            // textBox3
+            // txtBYieldMold
             // 
-            this.textBox3.Location = new System.Drawing.Point(1083, 593);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 20);
-            this.textBox3.TabIndex = 37;
+            this.txtBYieldMold.Location = new System.Drawing.Point(1083, 593);
+            this.txtBYieldMold.Name = "txtBYieldMold";
+            this.txtBYieldMold.Size = new System.Drawing.Size(100, 20);
+            this.txtBYieldMold.TabIndex = 37;
             // 
-            // textBox2
+            // txtBTotalPartSuccessfullyMolded
             // 
-            this.textBox2.Location = new System.Drawing.Point(1083, 561);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 36;
+            this.txtBTotalPartSuccessfullyMolded.Location = new System.Drawing.Point(1083, 561);
+            this.txtBTotalPartSuccessfullyMolded.Name = "txtBTotalPartSuccessfullyMolded";
+            this.txtBTotalPartSuccessfullyMolded.Size = new System.Drawing.Size(100, 20);
+            this.txtBTotalPartSuccessfullyMolded.TabIndex = 36;
             // 
-            // textBox1
+            // txtBTotalPartsMolded
             // 
-            this.textBox1.Location = new System.Drawing.Point(1083, 529);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 35;
+            this.txtBTotalPartsMolded.Location = new System.Drawing.Point(1083, 529);
+            this.txtBTotalPartsMolded.Name = "txtBTotalPartsMolded";
+            this.txtBTotalPartsMolded.Size = new System.Drawing.Size(100, 20);
+            this.txtBTotalPartsMolded.TabIndex = 35;
             // 
             // label9
             // 
@@ -303,7 +303,7 @@
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(76, 13);
             this.label7.TabIndex = 32;
-            this.label7.Text = "Tield assembly";
+            this.label7.Text = "Yield assembly";
             // 
             // label6
             // 
@@ -391,15 +391,15 @@
             this.Controls.Add(this.txtBMOLD);
             this.Controls.Add(this.btnClearList);
             this.Controls.Add(this.txtb1);
-            this.Controls.Add(this.textBox9);
-            this.Controls.Add(this.textBox8);
-            this.Controls.Add(this.textBox7);
-            this.Controls.Add(this.textBox6);
-            this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtBTotalYield);
+            this.Controls.Add(this.txtBTotalPartsPackaged);
+            this.Controls.Add(this.txtBYieldAssembly);
+            this.Controls.Add(this.txtBTotalPartsSuccessfullyAssembled);
+            this.Controls.Add(this.txtBYieldPaint);
+            this.Controls.Add(this.txtBTotalPartsSuccessfullyPainted);
+            this.Controls.Add(this.txtBYieldMold);
+            this.Controls.Add(this.txtBTotalPartSuccessfullyMolded);
+            this.Controls.Add(this.txtBTotalPartsMolded);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
@@ -450,15 +450,15 @@
         private System.Windows.Forms.ListBox lstWriteData;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
         private System.Windows.Forms.ListBox lstBoxProduct;
-        private System.Windows.Forms.TextBox textBox9;
-        private System.Windows.Forms.TextBox textBox8;
-        private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtBTotalYield;
+        private System.Windows.Forms.TextBox txtBTotalPartsPackaged;
+        private System.Windows.Forms.TextBox txtBYieldAssembly;
+        private System.Windows.Forms.TextBox txtBTotalPartsSuccessfullyAssembled;
+        private System.Windows.Forms.TextBox txtBYieldPaint;
+        private System.Windows.Forms.TextBox txtBTotalPartsSuccessfullyPainted;
+        private System.Windows.Forms.TextBox txtBYieldMold;
+        private System.Windows.Forms.TextBox txtBTotalPartSuccessfullyMolded;
+        private System.Windows.Forms.TextBox txtBTotalPartsMolded;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;

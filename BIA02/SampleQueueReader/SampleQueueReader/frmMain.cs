@@ -32,7 +32,6 @@ namespace SampleQueueReader
         String [,] state = {{"0","MOLD"},{"0","QUEUE_INSPECTION_1" },{"0","INSPECTION_1" },{"0","INSPECTION_1_SCRAP" },{"0","QUEUE_PAINT" },{"0","PAINT" },
                           { "0","QUEUE_INSPECTION_2" },{"0","INSPECTION_2" },{"0","INSPECTION_2_REWORK" },{"0","INSPECTION_2_SCRAP" },{"0","QUEUE_ASSEMBLY" },
                           { "0","QUEUE_INSPECTION_3" },{"0","INSPECTION_3" },{"0","INSPECTION_3_REWORK" },{"0","INSPECTION_3_SCRAP" },{"0","PACKAGE"} };
-        int moldddd = 0;
         int ProductID = 0;
         public frmMain()
         {
@@ -44,12 +43,29 @@ namespace SampleQueueReader
             lstBoxProductInit();
         }
 
+        private void updateAnalysisData()
+        {
 
+            if (ProductID != 0 && ProductID > 0 && ProductID < 10)
+            {
+                txtBTotalPartsMolded.Text = 
+                txtBTotalPartSuccessfullyMolded;
+                txtBYieldMold;
+                txtBTotalPartsSuccessfullyPainted;
+                txtBYieldPaint;
+                txtBTotalPartsSuccessfullyAssembled;
+                txtBYieldAssembly;
+                txtBTotalPartsPackaged;
+                txtBTotalYield;
+
+
+            }
+
+        }
         private void lstBoxProductInit()
         {
             for (int i = 0; i < productNameArr.Length / 2; i++)
             {
-                //MessageBox.Show(productNameArr[i, 1].ToString());
                 lstBoxProduct.Items.Add(productNameArr[i, 1].ToString());
             }
         }
@@ -62,6 +78,7 @@ namespace SampleQueueReader
                 {
                     string product = lstBoxProduct.SelectedItem.ToString();
                     ProductID = i+1;
+                    //test for yoyo name and ProductID bounding
                     MessageBox.Show(product + " - " + ProductID + " has been selected");
                     lstBoxProductSelector(ProductID);
                 }
@@ -69,10 +86,24 @@ namespace SampleQueueReader
         }
         private void lstBoxProductSelector(int productID)
         {
+            //clear the storage of state for last yoyo
 
+            for (int i = 0; i < state.Length / 2; i++)
+            {
+                state[i, 0] = "0";
+            }
+            //clear the storage of list for next yoyo
             lstWriteData.Items.Clear();
+
+            //prepare init sql string and connection string
             SqlConnection conn = new SqlConnection("Persist Security Info = False; User ID = sa; Initial Catalog = yoyoDB; Data Source = .;Password=Conestoga1;");
             SqlCommand cmd = new SqlCommand("SELECT * FROM yoyoData WHERE ProductID = " + productID, conn);
+            //change to select all option sql
+            if (productID == 9)
+            {
+                cmd = new SqlCommand("SELECT * FROM yoyoData", conn);
+            }
+            
             try
             {
                 conn.Open();
@@ -87,7 +118,6 @@ namespace SampleQueueReader
                                        rdr.GetDateTime(5) + "," +
                                        rdr.GetString(6));
 
-                    txtb1.Text = lstWriteData.Items.Count.ToString();
                     for (int i = 0; i < state.Length /2; i++)
                     {
                         if (rdr.GetString(3) == state[i, 1].ToString())
@@ -95,14 +125,41 @@ namespace SampleQueueReader
                             state[i, 0] = (Convert.ToInt32(state[i, 0]) + 1).ToString();
                         }
                     }
-
-                    //if (rdr.GetString(3) == "MOLD")
-                    //{
-                    //    moldddd++;
-                    //    txtBMOLD.Text = moldddd.ToString();
-                    //}
                 }
 
+                string total = lstWriteData.Items.Count.ToString();
+                txtb1.Text = total;
+
+                // analysis data
+
+                if (ProductID != 0 && ProductID > 0 && ProductID < 10)
+                {
+                    txtBTotalPartsMolded.Text = lstWriteData.Items.Count.ToString();
+                    txtBTotalPartSuccessfullyMolded.Text = state[0, 0].ToString();
+                    txtBYieldMold.Text = (state[0,0] / Convert.ToInt32(total));
+                    txtBTotalPartsSuccessfullyPainted;
+                    txtBYieldPaint;
+                    txtBTotalPartsSuccessfullyAssembled;
+                    txtBYieldAssembly;
+                    txtBTotalPartsPackaged;
+                    txtBTotalYield;
+
+
+                }
+
+
+
+
+
+
+
+
+
+
+
+                //test for yoyo amount
+                MessageBox.Show("Amount - " + lstWriteData.Items.Count.ToString());
+                //test for show the yoyo name and state
                 for (int i = 0; i < state.Length /2; i++)
                 {
                     MessageBox.Show(state[i,1].ToString() + " - " + state[i,0].ToString());
@@ -112,7 +169,7 @@ namespace SampleQueueReader
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message + "s");
+                MessageBox.Show(ex.Message);
             }
 
             finally
