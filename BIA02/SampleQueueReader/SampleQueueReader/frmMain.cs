@@ -130,32 +130,6 @@ namespace SampleQueueReader
                 string total = lstWriteData.Items.Count.ToString();
                 txtb1.Text = total;
 
-                // analysis data
-
-                if (ProductID != 0 && ProductID > 0 && ProductID < 10)
-                {
-                    txtBTotalPartsMolded.Text = lstWriteData.Items.Count.ToString();
-                    txtBTotalPartSuccessfullyMolded.Text = state[0, 0].ToString();
-                    txtBYieldMold.Text = (state[0,0] / Convert.ToInt32(total));
-                    txtBTotalPartsSuccessfullyPainted;
-                    txtBYieldPaint;
-                    txtBTotalPartsSuccessfullyAssembled;
-                    txtBYieldAssembly;
-                    txtBTotalPartsPackaged;
-                    txtBTotalYield;
-
-
-                }
-
-
-
-
-
-
-
-
-
-
 
                 //test for yoyo amount
                 MessageBox.Show("Amount - " + lstWriteData.Items.Count.ToString());
@@ -197,6 +171,17 @@ namespace SampleQueueReader
                                        rdr.GetDateTime(5) + "," +
                                        rdr.GetString(6));
                 }
+
+                txtBTotalPartsMolded.Text = lstWriteData.Items.Count.ToString();
+                txtBTotalPartSuccessfullyMolded.Text = state[0, 0].ToString();
+                txtBYieldMold.Text = (state[0, 0] / Convert.ToInt32(total));
+                txtBTotalPartsSuccessfullyPainted;
+                txtBYieldPaint;
+                txtBTotalPartsSuccessfullyAssembled;
+                txtBYieldAssembly;
+                txtBTotalPartsPackaged;
+                txtBTotalYield;
+
                 rdr.Close();
             }
             catch (Exception ex)
