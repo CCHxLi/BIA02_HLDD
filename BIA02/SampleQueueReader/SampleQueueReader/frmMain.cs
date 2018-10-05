@@ -29,9 +29,24 @@ namespace SampleQueueReader
         String[,] productNameArr = { {"1","Original Sleeper" }, {"2","Black Beauty" }, {"3","Firecraker" },
                                         {"4", "Lemon Yellow" }, {"5","Midnight Blue" }, {"6","Screaming Orange" },
                                         {"7", "Gold Glitter" },{"8","White Lightening" },{"9","All" } };
-        String [,] state = {{"0","MOLD"},{"0","QUEUE_INSPECTION_1" },{"0","INSPECTION_1" },{"0","INSPECTION_1_SCRAP" },{"0","QUEUE_PAINT" },{"0","PAINT" },
-                          { "0","QUEUE_INSPECTION_2" },{"0","INSPECTION_2" },{"0","INSPECTION_2_REWORK" },{"0","INSPECTION_2_SCRAP" },{"0","QUEUE_ASSEMBLY" },
-                          { "0","QUEUE_INSPECTION_3" },{"0","INSPECTION_3" },{"0","INSPECTION_3_REWORK" },{"0","INSPECTION_3_SCRAP" },{"0","PACKAGE"} };
+        String [,] state = {{"0","MOLD"}, //0
+                            {"0","QUEUE_INSPECTION_1" }, //1
+                            {"0","INSPECTION_1" }, //2
+                            {"0","INSPECTION_1_SCRAP" }, //3
+                            {"0","QUEUE_PAINT" }, //4
+                            {"0","PAINT" }, //5
+                            {"0","QUEUE_INSPECTION_2" }, //6
+                            {"0","INSPECTION_2" }, //7
+                            {"0","INSPECTION_2_REWORK" }, //8
+                            {"0","INSPECTION_2_SCRAP" }, //9
+                            {"0","QUEUE_ASSEMBLY" }, //10
+                            {"0","ASSEMBLY" }, //11
+                            {"0","QUEUE_INSPECTION_3" }, //12
+                            {"0","INSPECTION_3" }, //13
+                            {"0","INSPECTION_3_REWORK" }, //14
+                            {"0","INSPECTION_3_SCRAP" }, //15
+                            {"0","PACKAGE"} }; //16
+
         int ProductID = 0;
         public frmMain()
         {
@@ -89,6 +104,8 @@ namespace SampleQueueReader
             {
                 conn.Open();
                 SqlDataReader rdr = cmd.ExecuteReader();
+                int moldCount = 0;
+
                 while (rdr.Read())
                 {
                     lstWriteData.Items.Add(rdr.GetString(0) + ',' +
@@ -99,38 +116,56 @@ namespace SampleQueueReader
                                        rdr.GetDateTime(5) + "," +
                                        rdr.GetString(6));
 
+                    moldCount = rdr.GetString(1).Count();
+
                     for (int i = 0; i < state.Length /2; i++)
                     {
                         if (rdr.GetString(3) == state[i, 1].ToString())
                         {
                             state[i, 0] = (Convert.ToInt32(state[i, 0]) + 1).ToString();
-                        }
+                        }                       
                     }
                 }
 
+                // analysis data
                 String total = lstWriteData.Items.Count.ToString();
                 int totalFinal = Int32.Parse(total);
-                txtb1.Text = total;
-
-                // analysis data
-                double parsedDouble;
+                double parsedDoubleYieldMold;                  
+                //double parsedDoubleTotal;
+                double parseDoublePainted;
+                double parseDoubleMolded;
+                double parseDoubleAssembled;
+                double parseDoublePakage;                
 
                 if (ProductID != 0)
                 {
-                    txtBTotalPartsMolded.Text = lstWriteData.Items.Count.ToString();
+                    txtBTotalPartsMolded.Text = totalFinal.ToString();
+
                     txtBTotalPartSuccessfullyMolded.Text = state[0, 0].ToString();
-                    double.TryParse(state[0, 0].ToString(), out parsedDouble);
-                    parsedDouble = ((parsedDouble / totalFinal) * 100);
+                    
+                    double.TryParse(state[0, 0].ToString(), out parseDoubleMolded);
+                    ////double.TryParse(moldCount.ToString(), out parsedDoubleTotal);                                        
+                    parsedDoubleYieldMold = (Math.Round(((parseDoubleMolded / totalFinal) * 100),2));
+                    txtBYieldMold.Text = parsedDoubleYieldMold.ToString() +"%"; 
 
-                    txtBYieldMold.Text = (parsedDouble+"%").ToString(); 
-                    txtBTotalPartsSuccessfullyPainted.Text = state[6, 0].ToString();
-                    //txtBYieldPaint.Text = state[6,0] / state[5, 0]; same calculation issue
+
+
+                    txtBTotalPartsSuccessfullyPainted.Text = state[5, 0].ToString();
+
+                    double.TryParse(state[5, 0].ToString(), out parseDoublePainted);
+                    //double.TryParse(state[5, 0].ToString(), out parseDoubleMolded);                    
+                    txtBYieldPaint.Text = ( Math.Round(((parseDoublePainted / parseDoubleMolded) *100),2).ToString() + "%");
+
                     txtBTotalPartsSuccessfullyAssembled.Text = state[11, 0].ToString();
-                    //txtBYieldAssembly.Text = state[11, 0] / state[6, 0]; was the same issue
-                    txtBTotalPartsPackaged.Text = state[15, 0].ToString();
-                    //txtBTotalYield.Text = state[16,0] / total; the same!
 
 
+                    double.TryParse(state[11, 0].ToString(), out parseDoubleAssembled);                    
+                    txtBYieldAssembly.Text = ( Math.Round(((parseDoubleAssembled / parseDoublePainted)*100),2).ToString() + "%");
+                    
+                    txtBTotalPartsPackaged.Text = state[16, 0].ToString();
+
+                    double.TryParse(state[16, 0].ToString(), out parseDoublePakage);
+                    txtBTotalYield.Text = ( Math.Round(((parseDoublePakage / parseDoubleMolded) *100),2).ToString() + "%");
                 }
 
                 //test for yoyo amount
@@ -339,6 +374,11 @@ namespace SampleQueueReader
         private void btnClearList_Click(object sender, EventArgs e)
         {
             lstWriteData.Items.Clear();
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+
         }
     }
 }

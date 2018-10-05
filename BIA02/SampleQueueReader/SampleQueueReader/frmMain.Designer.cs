@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
@@ -64,9 +65,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
-            this.txtb1 = new System.Windows.Forms.TextBox();
             this.btnClearList = new System.Windows.Forms.Button();
-            this.txtBMOLD = new System.Windows.Forms.TextBox();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -359,13 +359,6 @@
             this.label11.TabIndex = 26;
             this.label11.Text = "Total parts molded";
             // 
-            // txtb1
-            // 
-            this.txtb1.Location = new System.Drawing.Point(689, 532);
-            this.txtb1.Name = "txtb1";
-            this.txtb1.Size = new System.Drawing.Size(88, 20);
-            this.txtb1.TabIndex = 44;
-            // 
             // btnClearList
             // 
             this.btnClearList.Location = new System.Drawing.Point(715, 488);
@@ -376,21 +369,16 @@
             this.btnClearList.UseVisualStyleBackColor = true;
             this.btnClearList.Click += new System.EventHandler(this.btnClearList_Click);
             // 
-            // txtBMOLD
+            // timer1
             // 
-            this.txtBMOLD.Location = new System.Drawing.Point(783, 532);
-            this.txtBMOLD.Name = "txtBMOLD";
-            this.txtBMOLD.Size = new System.Drawing.Size(100, 20);
-            this.txtBMOLD.TabIndex = 46;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1244, 822);
-            this.Controls.Add(this.txtBMOLD);
             this.Controls.Add(this.btnClearList);
-            this.Controls.Add(this.txtb1);
             this.Controls.Add(this.txtBTotalYield);
             this.Controls.Add(this.txtBTotalPartsPackaged);
             this.Controls.Add(this.txtBYieldAssembly);
@@ -468,9 +456,8 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.TextBox txtb1;
         private System.Windows.Forms.Button btnClearList;
-        private System.Windows.Forms.TextBox txtBMOLD;
+        private System.Windows.Forms.Timer timer1;
     }
 }
 
