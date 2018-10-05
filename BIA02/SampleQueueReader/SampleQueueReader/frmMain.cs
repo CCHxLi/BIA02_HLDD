@@ -60,7 +60,7 @@ namespace SampleQueueReader
                     string product = lstBoxProduct.SelectedItem.ToString();
                     ProductID = i+1;
                     //test for yoyo name and ProductID bounding
-                    MessageBox.Show(product + " - " + ProductID + " has been selected");
+                    //MessageBox.Show(product + " - " + ProductID + " has been selected");
                     lstBoxProductSelector(ProductID);
                 }
             }
@@ -109,39 +109,43 @@ namespace SampleQueueReader
                 }
 
                 String total = lstWriteData.Items.Count.ToString();
-                int s = Int32.Parse(total);
+                int totalFinal = Int32.Parse(total);
                 txtb1.Text = total;
 
                 // analysis data
+                double parsedDouble;
 
-                if (ProductID != 0 && ProductID > 0 && ProductID < 10)
+                if (ProductID != 0)
                 {
                     txtBTotalPartsMolded.Text = lstWriteData.Items.Count.ToString();
                     txtBTotalPartSuccessfullyMolded.Text = state[0, 0].ToString();
-                    //txtBYieldMold.Text = (Convert.ToInt32(state[0,0].tos) / s);  how to get the number calculation works?
+                    double.TryParse(state[0, 0].ToString(), out parsedDouble);
+                    parsedDouble = ((parsedDouble / totalFinal) * 100);
+
+                    txtBYieldMold.Text = (parsedDouble+"%").ToString(); 
                     txtBTotalPartsSuccessfullyPainted.Text = state[6, 0].ToString();
                     //txtBYieldPaint.Text = state[6,0] / state[5, 0]; same calculation issue
                     txtBTotalPartsSuccessfullyAssembled.Text = state[11, 0].ToString();
                     //txtBYieldAssembly.Text = state[11, 0] / state[6, 0]; was the same issue
-                    txtBTotalPartsPackaged.Text = state[16, 0].ToString();
+                    txtBTotalPartsPackaged.Text = state[15, 0].ToString();
                     //txtBTotalYield.Text = state[16,0] / total; the same!
 
 
                 }
 
                 //test for yoyo amount
-                MessageBox.Show("Amount - " + lstWriteData.Items.Count.ToString());
+                //MessageBox.Show("Amount - " + lstWriteData.Items.Count.ToString());
                 //test for show the yoyo name and state
-                for (int i = 0; i < state.Length /2; i++)
-                {
-                    MessageBox.Show(state[i,1].ToString() + " - " + state[i,0].ToString());
-                }
+                //for (int i = 0; i < state.Length / 2; i++)
+                //{
+                //    MessageBox.Show(state[i, 1].ToString() + " - " + state[i, 0].ToString());
+                //}
 
                 rdr.Close();
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message + "s");
             }
 
             finally
