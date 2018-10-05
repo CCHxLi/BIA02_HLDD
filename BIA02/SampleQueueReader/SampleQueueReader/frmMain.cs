@@ -43,25 +43,6 @@ namespace SampleQueueReader
             lstBoxProductInit();
         }
 
-        private void updateAnalysisData()
-        {
-
-            if (ProductID != 0 && ProductID > 0 && ProductID < 10)
-            {
-                txtBTotalPartsMolded.Text = 
-                txtBTotalPartSuccessfullyMolded;
-                txtBYieldMold;
-                txtBTotalPartsSuccessfullyPainted;
-                txtBYieldPaint;
-                txtBTotalPartsSuccessfullyAssembled;
-                txtBYieldAssembly;
-                txtBTotalPartsPackaged;
-                txtBTotalYield;
-
-
-            }
-
-        }
         private void lstBoxProductInit()
         {
             for (int i = 0; i < productNameArr.Length / 2; i++)
@@ -127,7 +108,8 @@ namespace SampleQueueReader
                     }
                 }
 
-                string total = lstWriteData.Items.Count.ToString();
+                String total = lstWriteData.Items.Count.ToString();
+                int s = Int32.Parse(total);
                 txtb1.Text = total;
 
                 // analysis data
@@ -136,26 +118,16 @@ namespace SampleQueueReader
                 {
                     txtBTotalPartsMolded.Text = lstWriteData.Items.Count.ToString();
                     txtBTotalPartSuccessfullyMolded.Text = state[0, 0].ToString();
-                    txtBYieldMold.Text = (state[0,0] / Convert.ToInt32(total));
-                    txtBTotalPartsSuccessfullyPainted;
-                    txtBYieldPaint;
-                    txtBTotalPartsSuccessfullyAssembled;
-                    txtBYieldAssembly;
-                    txtBTotalPartsPackaged;
-                    txtBTotalYield;
+                    //txtBYieldMold.Text = (Convert.ToInt32(state[0,0].tos) / s);  how to get the number calculation works?
+                    txtBTotalPartsSuccessfullyPainted.Text = state[6, 0].ToString();
+                    //txtBYieldPaint.Text = state[6,0] / state[5, 0]; same calculation issue
+                    txtBTotalPartsSuccessfullyAssembled.Text = state[11, 0].ToString();
+                    //txtBYieldAssembly.Text = state[11, 0] / state[6, 0]; was the same issue
+                    txtBTotalPartsPackaged.Text = state[16, 0].ToString();
+                    //txtBTotalYield.Text = state[16,0] / total; the same!
 
 
                 }
-
-
-
-
-
-
-
-
-
-
 
                 //test for yoyo amount
                 MessageBox.Show("Amount - " + lstWriteData.Items.Count.ToString());

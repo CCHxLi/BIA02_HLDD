@@ -25,3 +25,12 @@ C:\Users\hli3584\Desktop\BIA02_HLDD\BIA02\SampleQueueReader\SampleQueueReader\ob
 C:\Users\hli3584\Desktop\BIA02_HLDD\BIA02\SampleQueueReader\SampleQueueReader\obj\x86\Debug\SampleQueueReader.pdb
 C:\Users\hli3584\Desktop\BIA02_HLDD\BIA02\SampleQueueReader\SampleQueueReader\bin\Debug\SampleQueueReader.exe
 C:\Users\hli3584\Desktop\BIA02_HLDD\BIA02\SampleQueueReader\SampleQueueReader\bin\Debug\SampleQueueReader.pdb
+G:\eeeeeeeeeeeeee\BIA02_HLDD\BIA02\SampleQueueReader\SampleQueueReader\bin\Debug\SampleQueueReader.exe
+G:\eeeeeeeeeeeeee\BIA02_HLDD\BIA02\SampleQueueReader\SampleQueueReader\bin\Debug\SampleQueueReader.pdb
+G:\eeeeeeeeeeeeee\BIA02_HLDD\BIA02\SampleQueueReader\SampleQueueReader\obj\x86\Debug\SampleQueueReader.csprojAssemblyReference.cache
+G:\eeeeeeeeeeeeee\BIA02_HLDD\BIA02\SampleQueueReader\SampleQueueReader\obj\x86\Debug\SampleQueueReader.frmMain.resources
+G:\eeeeeeeeeeeeee\BIA02_HLDD\BIA02\SampleQueueReader\SampleQueueReader\obj\x86\Debug\SampleQueueReader.Properties.Resources.resources
+G:\eeeeeeeeeeeeee\BIA02_HLDD\BIA02\SampleQueueReader\SampleQueueReader\obj\x86\Debug\SampleQueueReader.csproj.GenerateResource.cache
+G:\eeeeeeeeeeeeee\BIA02_HLDD\BIA02\SampleQueueReader\SampleQueueReader\obj\x86\Debug\SampleQueueReader.csproj.CoreCompileInputs.cache
+G:\eeeeeeeeeeeeee\BIA02_HLDD\BIA02\SampleQueueReader\SampleQueueReader\obj\x86\Debug\SampleQueueReader.exe
+G:\eeeeeeeeeeeeee\BIA02_HLDD\BIA02\SampleQueueReader\SampleQueueReader\obj\x86\Debug\SampleQueueReader.pdb
