@@ -42,26 +42,7 @@ namespace SampleQueueReader
             msmq.ReceiveCompleted += new ReceiveCompletedEventHandler(msmq_ReceiveCompleted);
             lstBoxProductInit();
         }
-
-        private void updateAnalysisData()
-        {
-
-            if (ProductID != 0 && ProductID > 0 && ProductID < 10)
-            {
-                txtBTotalPartsMolded.Text = 
-                txtBTotalPartSuccessfullyMolded;
-                txtBYieldMold;
-                txtBTotalPartsSuccessfullyPainted;
-                txtBYieldPaint;
-                txtBTotalPartsSuccessfullyAssembled;
-                txtBYieldAssembly;
-                txtBTotalPartsPackaged;
-                txtBTotalYield;
-
-
-            }
-
-        }
+        
         private void lstBoxProductInit()
         {
             for (int i = 0; i < productNameArr.Length / 2; i++)
@@ -172,15 +153,15 @@ namespace SampleQueueReader
                                        rdr.GetString(6));
                 }
 
-                txtBTotalPartsMolded.Text = lstWriteData.Items.Count.ToString();
-                txtBTotalPartSuccessfullyMolded.Text = state[0, 0].ToString();
-                txtBYieldMold.Text = (state[0, 0] / Convert.ToInt32(total));
-                txtBTotalPartsSuccessfullyPainted;
-                txtBYieldPaint;
-                txtBTotalPartsSuccessfullyAssembled;
-                txtBYieldAssembly;
-                txtBTotalPartsPackaged;
-                txtBTotalYield;
+                //txtBTotalPartsMolded.Text = lstWriteData.Items.Count.ToString();
+                //txtBTotalPartSuccessfullyMolded.Text = state[0, 0].ToString();
+                //txtBYieldMold.Text = (state[0, 0] / Convert.ToInt32(total));
+                //txtBTotalPartsSuccessfullyPainted;
+                //txtBYieldPaint;
+                //txtBTotalPartsSuccessfullyAssembled;
+                //txtBYieldAssembly;
+                //txtBTotalPartsPackaged;
+                //txtBTotalYield;
 
                 rdr.Close();
             }

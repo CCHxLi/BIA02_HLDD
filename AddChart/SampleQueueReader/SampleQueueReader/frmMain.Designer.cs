@@ -85,8 +85,7 @@
             this.lstQueueData.Location = new System.Drawing.Point(12, 53);
             this.lstQueueData.Name = "lstQueueData";
             this.lstQueueData.Size = new System.Drawing.Size(676, 342);
-            this.lstQueueData.TabIndex = 1;
-            this.lstQueueData.SelectedIndexChanged += new System.EventHandler(this.lstQueueData_SelectedIndexChanged);
+            this.lstQueueData.TabIndex = 1;            
             // 
             // btnStop
             // 
@@ -185,7 +184,6 @@
             this.chPareto.Size = new System.Drawing.Size(300, 300);
             this.chPareto.TabIndex = 15;
             this.chPareto.Text = "chart1";
-            this.chPareto.Click += new System.EventHandler(this.chPareto_Click);
             // 
             // lstBoxProduct
             // 

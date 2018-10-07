@@ -52,3 +52,12 @@ C:\Users\Ddarihan9887\Desktop\BIA02_HLDD\BIA02_HLDD\BIA02\SampleQueueReader\Samp
 C:\Users\Ddarihan9887\Desktop\BIA02_HLDD\BIA02_HLDD\BIA02\SampleQueueReader\SampleQueueReader\obj\x86\Debug\SampleQueueReader.csproj.CoreCompileInputs.cache
 C:\Users\Ddarihan9887\Desktop\BIA02_HLDD\BIA02_HLDD\BIA02\SampleQueueReader\SampleQueueReader\obj\x86\Debug\SampleQueueReader.exe
 C:\Users\Ddarihan9887\Desktop\BIA02_HLDD\BIA02_HLDD\BIA02\SampleQueueReader\SampleQueueReader\obj\x86\Debug\SampleQueueReader.pdb
+C:\Users\hli3584\Desktop\BIA02_HLDD\AddChart\SampleQueueReader\SampleQueueReader\bin\Debug\SampleQueueReader.exe
+C:\Users\hli3584\Desktop\BIA02_HLDD\AddChart\SampleQueueReader\SampleQueueReader\bin\Debug\SampleQueueReader.pdb
+C:\Users\hli3584\Desktop\BIA02_HLDD\AddChart\SampleQueueReader\SampleQueueReader\obj\x86\Debug\SampleQueueReader.csprojAssemblyReference.cache
+C:\Users\hli3584\Desktop\BIA02_HLDD\AddChart\SampleQueueReader\SampleQueueReader\obj\x86\Debug\SampleQueueReader.frmMain.resources
+C:\Users\hli3584\Desktop\BIA02_HLDD\AddChart\SampleQueueReader\SampleQueueReader\obj\x86\Debug\SampleQueueReader.Properties.Resources.resources
+C:\Users\hli3584\Desktop\BIA02_HLDD\AddChart\SampleQueueReader\SampleQueueReader\obj\x86\Debug\SampleQueueReader.csproj.GenerateResource.cache
+C:\Users\hli3584\Desktop\BIA02_HLDD\AddChart\SampleQueueReader\SampleQueueReader\obj\x86\Debug\SampleQueueReader.csproj.CoreCompileInputs.cache
+C:\Users\hli3584\Desktop\BIA02_HLDD\AddChart\SampleQueueReader\SampleQueueReader\obj\x86\Debug\SampleQueueReader.exe
+C:\Users\hli3584\Desktop\BIA02_HLDD\AddChart\SampleQueueReader\SampleQueueReader\obj\x86\Debug\SampleQueueReader.pdb

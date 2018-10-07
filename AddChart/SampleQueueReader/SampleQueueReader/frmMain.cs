@@ -20,12 +20,12 @@ using System.Data.SqlClient;
 using System.Globalization;
 using System.Windows.Forms.DataVisualization.Charting;
 
-
 namespace SampleQueueReader
 {
     
     public partial class frmMain : Form
     {
+        
         DataTable dt = null;
         MessageQueue msmq = new MessageQueue();
         Boolean bRead = false;
@@ -71,9 +71,11 @@ namespace SampleQueueReader
             chPareto.DataSource = dt;
             SetupParto();
 
-
+            Timer timer = new Timer();
+            timer.Interval = (1 * 15);
+            timer.Tick += new EventHandler(timer1_Tick);
+            timer.Start();
         }
-
 
         private void lstBoxProductInit()
         {
@@ -106,7 +108,7 @@ namespace SampleQueueReader
                 state[i, 0] = "0";
             }
             //clear the storage of list for next yoyo
-            lstWriteData.Items.Clear();
+            //lstWriteData.Items.Clear();
 
             //prepare init sql string and connection string
             SqlConnection conn = new SqlConnection("Persist Security Info = False; User ID = sa; Initial Catalog = yoyoDB; Data Source = .;Password=Conestoga1;");
@@ -188,8 +190,6 @@ namespace SampleQueueReader
                     txtBTotalYield.Text = ( Math.Round(((parseDoublePakage / totalFinal) *100),2).ToString() + "%");
 
                 }
-
-                
 
                 rdr.Close();
             }
@@ -410,11 +410,6 @@ namespace SampleQueueReader
 
         }
 
-        private void chPareto_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void button1_Click(object sender, EventArgs e)
         {
             ReadFromDatabase();
@@ -426,8 +421,8 @@ namespace SampleQueueReader
         }
 
         private void timer1_Tick(object sender, EventArgs e)
-        {
-
+        {          
+            lstBoxProductSelector(ProductID);
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
@@ -446,10 +441,11 @@ namespace SampleQueueReader
             Int32 scap = (Int32)cmd.ExecuteScalar();
             conn.Close();
 
+
             DataRow dr1 = dt.NewRow();
             dr1[0] = "Rework";
             dr1[1] = rewrok;
-      
+
 
             DataRow dr2 = dt.NewRow();
             dr2[0] = "Scap";
@@ -457,7 +453,6 @@ namespace SampleQueueReader
 
             dt.Rows.Add(dr1);
             dt.Rows.Add(dr2);
-
             
             // For the purposes of this exercise, simple require at least data points
            
@@ -468,11 +463,8 @@ namespace SampleQueueReader
                     Total += (int)dr[1];
                 }
 
-
                 // Set Left axis to maximum value (Total)
                 chPareto.ChartAreas[0].AxisY.Maximum = Total;
-
-
 
                 // Clear the data points to redraw the chart
                 chPareto.Series[0].Points.Clear();
@@ -480,7 +472,7 @@ namespace SampleQueueReader
 
                 // In the loop, set the data points for the columns to
                 // be the original values, including the names for each defect.
-                // The second series uses the accumulated sum, and divides by Total to get
+                // The second series uses the accumulated sum, and divides by Total to getmutithreading
                 // percentage.
 
                 // A DataView is used here to sort the data in the data table.
@@ -494,16 +486,7 @@ namespace SampleQueueReader
                     chPareto.Series[0].Points.AddXY(dr[0], dr[1]);
                     cusum += (int)dr[1];
                     chPareto.Series[1].Points.AddY((cusum * 100) / Total);
-                }
-
-         
-           
-            
-        }
-
-        private void lstQueueData_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
+                }      
         }
     }
 }
